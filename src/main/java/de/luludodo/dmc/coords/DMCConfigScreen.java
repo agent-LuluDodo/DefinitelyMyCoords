@@ -28,13 +28,6 @@ public class DMCConfigScreen extends Screen {
     private final Element[] elements = new Element[9];
     private boolean infoMode;
 
-    private int relativeX = 0;
-    private int relativeY = 0;
-    private int relativeZ = 0;
-    private int absoluteX = 0;
-    private int absoluteY = 0;
-    private int absoluteZ = 0;
-
     private int oldX = 0;
     private int oldY = 0;
     private int oldZ = 0;
@@ -63,6 +56,8 @@ public class DMCConfigScreen extends Screen {
                 (Mode mode) -> Text.translatable(mode.getTranslationKey())
         ).values(
                 Mode.values()
+        ).initially(
+                ConfigAPI.getMode()
         ).build(
                 width / 2 - 100,
                 height / 6 + 8,
@@ -109,14 +104,20 @@ public class DMCConfigScreen extends Screen {
             }
         }).dimensions(width / 2 + 80, height / 6 - 16, 20, 20).build());
         elements[5] = addDrawableChild(ButtonWidget.builder(Text.of("i"), button -> infoMode = !infoMode).dimensions(width / 2 + 80, height / 6 + 8, 20, 20).build());
-        Mode mode = ConfigAPI.getMode();
-        if (mode != Mode.CUSTOM) {
+        Mode curMode = mode.getValue();
+        if (curMode != Mode.CUSTOM) {
+            if (curMode == Mode.RELATIVE) {
+                offsetX.setText(((ConfigAPI.getOffsetX() + client.cameraEntity.getBlockX()) + "").replaceAll("\\.0$", ""));
+                offsetY.setText(((ConfigAPI.getOffsetY() + client.cameraEntity.getBlockY()) + "").replaceAll("\\.0$", ""));
+                offsetZ.setText(((ConfigAPI.getOffsetZ() + client.cameraEntity.getBlockZ()) + "").replaceAll("\\.0$", ""));
+            } else {
+                offsetX.setText((ConfigAPI.getOffsetX() + "").replaceAll("\\.0$", ""));
+                offsetY.setText((ConfigAPI.getOffsetY() + "").replaceAll("\\.0$", ""));
+                offsetZ.setText((ConfigAPI.getOffsetZ() + "").replaceAll("\\.0$", ""));
+            }
             elements[2] = addDrawableChild(offsetX);
             elements[3] = addDrawableChild(offsetY);
             elements[4] = addDrawableChild(offsetZ);
-            offsetX.setText((ConfigAPI.getOffsetX() + (mode == Mode.RELATIVE?client.cameraEntity.getBlockX(): 0) + "").replaceAll("\\.0$", ""));
-            offsetY.setText((ConfigAPI.getOffsetY() + (mode == Mode.RELATIVE?client.cameraEntity.getBlockY(): 0) + "").replaceAll("\\.0$", ""));
-            offsetZ.setText((ConfigAPI.getOffsetZ() + (mode == Mode.RELATIVE?client.cameraEntity.getBlockZ(): 0) + "").replaceAll("\\.0$", ""));
         }
         elements[8] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.cancel"), button -> cancel()).dimensions(width / 2 - 100, height / 6 + 168, 200, 20).build());
         elements[7] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.save"), button -> close()).dimensions(width / 2 - 100, height / 6 + 144, 200, 20).build());

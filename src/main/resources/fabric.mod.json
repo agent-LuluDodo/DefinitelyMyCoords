@@ -10,14 +10,12 @@
     "issues": "https://github.com/agent-LuluDodo/DefinitlyMyCoords/issues",
     "homepage": "https://modrinth.com/mod/definitlymycoords"
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/dmc/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
       "de.luludodo.dmc.client.DefinitelyMyCoordsClient"
-    ],
-    "main": [
     ]
   },
   "mixins": [
