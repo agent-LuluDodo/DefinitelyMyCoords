@@ -6,8 +6,9 @@
   "description": "A Mod to modify the coordinates shown on the f3 screen.",
   "authors": ["agent_LuluDodo"],
   "contact": {
-    "sources": "https://github.com/lucad/Definitly My Coords",
-    "issues": ""
+    "sources": "https://github.com/agent-LuluDodo/DefinitlyMyCoords",
+    "issues": "https://github.com/agent-LuluDodo/DefinitlyMyCoords/issues",
+    "homepage": "https://modrinth.com/mod/definitlymycoords"
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/dmc/icon.png",
