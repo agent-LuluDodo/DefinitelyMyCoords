@@ -7,16 +7,16 @@ assignees: ''
 
 ---
 
-**The problem**
+## The problem
 If your feature fixes a problem with the mod [e.g. inaccessibility] describe the problem here.
 
-**The solution/feature**
-Why do you think this is the best solution for the problem?
+## The solution/feature
+Why do you think this is the best solution for the problem?  
 Or if it's a new feature, why do you think this would add to this mod?
 
-**Alternatives**
-If you found any alternatives, please list them here. 
+## Alternatives
+If you found any alternatives, please list them here.  
 If you are feeling fancy, you could even add why you didn't choose them.
 
-**Additional context**
+## Additional context
 Add any other context or screenshots about the feature request here.
