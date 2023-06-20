@@ -1,5 +1,13 @@
-DefinitlyMyCoords helps you hide your coordinates on the F3 screen with 3 different modes.
-Download on [Modrinth](https://modrinth.com/mod/definitlymycoords)!
+## Download on [Modrinth](https://modrinth.com/mod/definitelymycoords)!  
+![Settings GUI](https://cdn.modrinth.com/data/M4Fyp5vW/images/e5c68e67a69b5c3c2fe834cc5c2b7b0d9108e1c7.png)
+DefinitelyMyCoords helps you hide your coordinates on the F3 screen with 3 different modes.
+
+# Why do I want this mod?
+
+If you're a streamer or share your screen with somebody, 
+this mod could save you from leaking your coordinates. 
+While still being able to use F3 to measure distances, 
+check the direction you are facing, etc.
 
 ## Usage
 
