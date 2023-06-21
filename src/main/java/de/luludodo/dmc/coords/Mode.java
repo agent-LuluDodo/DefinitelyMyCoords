@@ -3,7 +3,7 @@ package de.luludodo.dmc.coords;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.util.TranslatableOption;
-
+//&a
 @Environment(value= EnvType.CLIENT)
 public enum Mode implements TranslatableOption {
     RELATIVE(0, "options.dmc.relative"),
