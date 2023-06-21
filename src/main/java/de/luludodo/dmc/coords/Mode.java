@@ -14,22 +14,12 @@ public enum Mode implements TranslatableOption {
     ABSOLUTE(1, "options.dmc.absolute"),
     CUSTOM(2, "options.dmc.custom");
 
-    private static final Mode[] VALUES;
     private final int id;
     private final String translationKey;
 
     Mode(int id, String translationKey) {
         this.id = id;
         this.translationKey = translationKey;
-    }
-
-    public static Mode valueOfName(String name) {
-        for (Mode mode:VALUES) {
-            if (mode.toString().equals(name)) {
-                return mode;
-            }
-        }
-        return null;
     }
 
     @Override
@@ -48,13 +38,5 @@ public enum Mode implements TranslatableOption {
             case ABSOLUTE -> "absolute";
             case CUSTOM -> "custom";
         };
-    }
-
-    public static Mode byId(int id) {
-        return VALUES[MathHelper.floorMod(id, VALUES.length)];
-    }
-
-    static {
-        VALUES = Arrays.stream(Mode.values()).sorted(Comparator.comparingInt(Mode::getId)).toArray(Mode[]::new);
     }
 }
