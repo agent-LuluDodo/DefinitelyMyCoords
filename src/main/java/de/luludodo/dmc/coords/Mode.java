@@ -28,6 +28,7 @@ public enum Mode implements TranslatableOption {
         return translationKey;
     }
 
+    @Override
     public String toString() {
         return switch (this) {
             case RELATIVE -> "relative";
