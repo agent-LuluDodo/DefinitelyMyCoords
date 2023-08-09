@@ -36,9 +36,9 @@ public class F3MenuMixin {
     public Object[] getChunkXYZ(Object[] args) {
         BlockPos originalblockPos = MinecraftClient.getInstance().cameraEntity.getBlockPos();
         BlockPos blockPos = new BlockPos(
-                DMCApi.getOffsetBlockX(originalblockPos.getX()),
-                DMCApi.getOffsetBlockY(originalblockPos.getY()),
-                DMCApi.getOffsetBlockZ(originalblockPos.getZ())
+                (int) DMCApi.getOffsetBlockX(originalblockPos.getX()),
+                (int) DMCApi.getOffsetBlockY(originalblockPos.getY()),
+                (int) DMCApi.getOffsetBlockZ(originalblockPos.getZ())
         );
         ChunkPos chunkPos = new ChunkPos(blockPos);
         args[0] = chunkPos.x;

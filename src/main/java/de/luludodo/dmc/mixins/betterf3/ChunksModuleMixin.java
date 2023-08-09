@@ -12,9 +12,9 @@ public class ChunksModuleMixin {
     @ModifyArg(method = "update", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/ChunkPos;<init>(Lnet/minecraft/util/math/BlockPos;)V", ordinal = 0), index = 0)
     public BlockPos getBlockPos(BlockPos original) {
         return new BlockPos(
-                DMCApi.getOffsetBlockX(original.getX()),
-                DMCApi.getOffsetBlockY(original.getY()),
-                DMCApi.getOffsetBlockZ(original.getZ())
+                (int) DMCApi.getOffsetBlockX(original.getX()),
+                (int) DMCApi.getOffsetBlockY(original.getY()),
+                (int) DMCApi.getOffsetBlockZ(original.getZ())
         );
     }
 }
