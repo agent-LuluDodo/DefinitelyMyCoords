@@ -26,12 +26,12 @@ public class DMCConfigScreen extends Screen {
     private TextFieldWidget offsetY;
     private TextFieldWidget offsetZ;
 
-    private final Element[] elements = new Element[9];
+    private final Element[] elements = new Element[8];
     private boolean infoMode;
 
-    private int oldX = 0;
-    private int oldY = 0;
-    private int oldZ = 0;
+    private long oldX = 0;
+    private long oldY = 0;
+    private long oldZ = 0;
     private Mode oldMode = null;
     private boolean oldRandomRotations = true;
     private boolean oldDebugEnabled = false;
@@ -97,13 +97,7 @@ public class DMCConfigScreen extends Screen {
                 }
             } catch (Exception ignored) {}
         });
-        elements[1] = addDrawableChild(randomRotations.createButton(settings, width / 2 - 100, height / 6 - 16, 176));
-        elements[6] = addDrawableChild(ButtonWidget.builder(Text.of("⟳"), button -> {
-            ConfigAPI.setOffsetRotations((int) Math.round(Math.random() * 10000));
-            if (randomRotations.getValue()) {
-                client.worldRenderer.reload();
-            }
-        }).dimensions(width / 2 + 80, height / 6 - 16, 20, 20).build());
+        elements[1] = addDrawableChild(randomRotations.createButton(settings, width / 2 - 100, height / 6 - 16, 200));
         elements[5] = addDrawableChild(ButtonWidget.builder(Text.of("i"), button -> infoMode = !infoMode).dimensions(width / 2 + 80, height / 6 + 8, 20, 20).build());
         Mode curMode = mode.getValue();
         if (curMode != Mode.CUSTOM) {
@@ -120,8 +114,8 @@ public class DMCConfigScreen extends Screen {
             elements[3] = addDrawableChild(offsetY);
             elements[4] = addDrawableChild(offsetZ);
         }
-        elements[8] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.cancel"), button -> cancel()).dimensions(width / 2 - 100, height / 6 + 168, 200, 20).build());
-        elements[7] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.save"), button -> close()).dimensions(width / 2 - 100, height / 6 + 144, 200, 20).build());
+        elements[7] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.cancel"), button -> cancel()).dimensions(width / 2 - 100, height / 6 + 168, 200, 20).build());
+        elements[6] = addDrawableChild(ButtonWidget.builder(Text.translatable("options.dmc.save"), button -> close()).dimensions(width / 2 - 100, height / 6 + 144, 200, 20).build());
     }
 
     private void onModeChange(CyclingButtonWidget<Mode> widget, Mode mode) {
@@ -215,7 +209,7 @@ public class DMCConfigScreen extends Screen {
             return 0;
         }
         try {
-            Float.parseFloat(value);
+            Integer.parseInt(value);
         } catch (Exception e) {
             return 2;
         }
@@ -240,7 +234,7 @@ public class DMCConfigScreen extends Screen {
             Element hoveredElement = optionalHoveredElement.get();
             int index = -1;
             for (int i = 0; i < elements.length; i++) {
-                if (elements[i].equals(hoveredElement)) index = i;
+                if (elements[i] != null&&elements[i].equals(hoveredElement)) index = i;
             }
             switch (index) {
                 case 0 -> renderTooltip(matrices, "mode-" + mode.getValue().toString(), mouseX, mouseY);
@@ -249,9 +243,8 @@ public class DMCConfigScreen extends Screen {
                 case 3 -> renderTooltip(matrices, "offset-y", width / 2 + 95, mouseY);
                 case 4 -> renderTooltip(matrices, "offset-z", width / 2 + 95, mouseY);
                 case 5 -> renderTooltip(matrices, "info-mode", mouseX, mouseY);
-                case 6 -> renderTooltip(matrices, "redo-rotations", mouseX, mouseY);
-                case 7 -> renderTooltip(matrices, "save", mouseX, mouseY);
-                case 8 -> renderTooltip(matrices, "cancel", mouseX, mouseY);
+                case 6 -> renderTooltip(matrices, "save", mouseX, mouseY);
+                case 7 -> renderTooltip(matrices, "cancel", mouseX, mouseY);
             }
         }
     }
