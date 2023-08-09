@@ -1,14 +1,18 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "de.luludodo.dmc.mixin",
+  "package": "de.luludodo.dmc.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
-    "ObscureRotationsMixin",
-    "F3MenuModifierMixin"
+    "betterf3.ChunksModuleMixin",
+    "betterf3.CoordsModuleMixin",
+    "betterf3.TargetModuleMixin",
+    "vanilla.ObscureRotationsMixin",
+    "vanilla.F3MenuMixin"
   ],
+  "plugin": "de.luludodo.dmc.mixins.DMCMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   }
