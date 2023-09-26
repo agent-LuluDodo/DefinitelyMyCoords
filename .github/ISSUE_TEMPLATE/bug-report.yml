@@ -34,6 +34,9 @@ body:
       
   - type: markdown
     attributes:
+      value: ""
+  - type: markdown
+    attributes:
       value: "# Information"
   - type: textarea
     id: description
@@ -62,6 +65,9 @@ body:
     validations:
       required: true
       
+  - type: markdown
+    attributes:
+      value: ""
   - type: markdown
     attributes:
       value: "# Additions"
