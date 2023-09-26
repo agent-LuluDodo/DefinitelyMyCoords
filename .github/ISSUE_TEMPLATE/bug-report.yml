@@ -2,7 +2,7 @@ name: Bug report
 description: Create a report about a bug
 title: "[Bug] "
 labels: ["bug"]
-assignees:
+assignees: []
 body:
   - type: markdown
     attributes:
