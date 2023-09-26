@@ -34,7 +34,7 @@ body:
       
   - type: markdown
     attributes:
-      value: "## Information
+      value: "## Information"
   - type: textarea
     id: description
     attributes:
@@ -64,7 +64,7 @@ body:
       
   - type: markdown
     attributes:
-      value: "## Additions
+      value: "## Additions"
   - type: textarea
     id: screenshots
     attributes:
