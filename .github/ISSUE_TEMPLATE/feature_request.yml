@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an idea for this mod
+title: '[Feature] '
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: If your feature fixes a problem with the mod [e.g. inaccessibility] describe the problem here.
+  - type: textarea
+    id: feature
+    attributes:
+      label: The solution/feature
+      description: |
+        Why do you think this is the best solution for the problem?
+        Or if it's a new feature, why do you think this would add to this mod?
+    validations:
+      requiered: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: |
+        If you found any alternatives, please list them here.
+        If you are feeling fancy, you could even add why you didn't choose them.
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
