@@ -22,6 +22,7 @@ body:
       options:
         - '1.1'
         - '1.2'
+        - '1.2.1'
     validations:
       required: true
   - type: input
@@ -33,7 +34,7 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: ' <br>'
+      value: '<br>'
   - type: markdown
     attributes:
       value: '# Information'
