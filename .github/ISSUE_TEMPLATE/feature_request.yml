@@ -16,7 +16,7 @@ body:
       description: |
         Why do you think this is the best solution for the problem?
         Or if it's a new feature, why do you think this would add to this mod?
-    validation:
+    validations:
       requiered: true
   - type: textarea
     id: alternatives
