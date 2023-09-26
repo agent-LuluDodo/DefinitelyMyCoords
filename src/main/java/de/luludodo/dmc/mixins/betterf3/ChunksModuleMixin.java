@@ -1,3 +1,4 @@
+/*
 package de.luludodo.dmc.mixins.betterf3;
 
 import de.luludodo.dmc.api.DMCApi;
@@ -18,3 +19,4 @@ public class ChunksModuleMixin {
         );
     }
 }
+*/

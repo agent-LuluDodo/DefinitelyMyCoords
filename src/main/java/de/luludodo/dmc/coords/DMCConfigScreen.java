@@ -46,8 +46,10 @@ public class DMCConfigScreen extends Screen {
         oldZ = ConfigAPI.getOffsetZ();
         oldMode = ConfigAPI.getMode();
         oldRandomRotations = ConfigAPI.getObscureRotations();
-        oldDebugEnabled = client.options.debugEnabled;
-        client.options.debugEnabled = true;
+        oldDebugEnabled = client.getDebugHud().shouldShowDebugHud();
+        if (!oldDebugEnabled) {
+            client.getDebugHud().toggleDebugHud();
+        }
         randomRotations = SimpleOption.ofBoolean("options.dmc.random-rotations", ConfigAPI.getObscureRotations(), value -> {
             ConfigAPI.setObscureRotations(value);
             client.worldRenderer.reload();
@@ -188,7 +190,9 @@ public class DMCConfigScreen extends Screen {
     }
 
     public void close() {
-        client.options.debugEnabled = oldDebugEnabled;
+        if (oldDebugEnabled ^ client.getDebugHud().shouldShowDebugHud()) {
+            client.getDebugHud().toggleDebugHud();
+        }
         client.worldRenderer.reload();
         super.close();
     }

@@ -16,7 +16,7 @@ public class RelativeF3Coords {
         // Initializer Class to register a tickEvent at START_CLIENT_TICK which sets oldX, oldY, etc. to the current corresponding coord
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             MinecraftClient minecraft = MinecraftClient.getInstance();
-            if (minecraft.options.debugEnabled && closed) {
+            if (minecraft.getDebugHud().shouldShowDebugHud() && closed) {
                 // set oldX, oldY, etc. to corresponding coord
                 oldX = minecraft.getCameraEntity().getX();
                 oldY = minecraft.getCameraEntity().getY();
@@ -26,7 +26,7 @@ public class RelativeF3Coords {
                 oldBlockZ = minecraft.getCameraEntity().getBlockZ();
                 // set closed to false so it only happens once
                 closed = false;
-            } else if (!minecraft.options.debugEnabled){
+            } else if (!minecraft.getDebugHud().shouldShowDebugHud()){
                 // reset closed
                 closed = true;
             }
