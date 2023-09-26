@@ -73,7 +73,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: screenshots
+    id: additional
     attributes:
       label: Additional context
       description: "Add any other context about the problem here."
