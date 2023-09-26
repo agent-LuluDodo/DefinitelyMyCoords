@@ -34,7 +34,7 @@ body:
       
   - type: markdown
     attributes:
-      value: " "
+      value: "<br>"
   - type: markdown
     attributes:
       value: "# Information"
@@ -67,7 +67,7 @@ body:
       
   - type: markdown
     attributes:
-      value: " "
+      value: "<br>"
   - type: markdown
     attributes:
       value: "# Additions"
