@@ -6,7 +6,7 @@ assignees: []
 body:
   - type: markdown
     attributes:
-      value: "## System"
+      value: "# System"
   - type: input
     id: mc-version
     attributes:
@@ -34,7 +34,7 @@ body:
       
   - type: markdown
     attributes:
-      value: "## Information"
+      value: "<br># Information"
   - type: textarea
     id: description
     attributes:
@@ -64,7 +64,7 @@ body:
       
   - type: markdown
     attributes:
-      value: "## Additions"
+      value: "<br># Additions"
   - type: textarea
     id: screenshots
     attributes:
