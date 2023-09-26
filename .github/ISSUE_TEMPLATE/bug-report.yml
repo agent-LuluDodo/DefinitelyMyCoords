@@ -34,7 +34,9 @@ body:
       
   - type: markdown
     attributes:
-      value: "<br># Information"
+      value: |
+        <br>
+        # Information
   - type: textarea
     id: description
     attributes:
@@ -64,7 +66,9 @@ body:
       
   - type: markdown
     attributes:
-      value: "<br># Additions"
+      value: |
+        <br>
+        # Additions
   - type: textarea
     id: screenshots
     attributes:
