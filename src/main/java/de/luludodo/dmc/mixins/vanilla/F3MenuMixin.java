@@ -1,6 +1,7 @@
 package de.luludodo.dmc.mixins.vanilla;
 
 import de.luludodo.dmc.api.DMCApi;
+import de.luludodo.dmc.client.DefinitelyMyCoordsClient;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.DebugHud;
 import net.minecraft.util.math.BlockPos;
@@ -12,14 +13,14 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(DebugHud.class)
 public class F3MenuMixin {
-    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 3), index = 2)
+    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 4), index = 2)
     public Object[] getXYZ(Object[] args) {
         args[0] = DMCApi.getOffsetX((double) args[0]);
         args[1] = DMCApi.getOffsetY((double) args[1]);
         args[2] = DMCApi.getOffsetZ((double) args[2]);
         return args;
     }
-    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 4), index = 2)
+    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 5), index = 2)
     public Object[] getBlockXYZ(Object[] args) {
         long x = DMCApi.getOffsetBlockX((int) args[0]);
         long y = DMCApi.getOffsetBlockY((int) args[1]);
@@ -32,7 +33,7 @@ public class F3MenuMixin {
         args[5] = z & 15;
         return args;
     }
-    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 5), index = 2)
+    @ModifyArg(method = "getLeftText", at = @At(value = "INVOKE", target = "Ljava/lang/String;format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", ordinal = 6), index = 2)
     public Object[] getChunkXYZ(Object[] args) {
         BlockPos originalblockPos = MinecraftClient.getInstance().cameraEntity.getBlockPos();
         BlockPos blockPos = new BlockPos(
@@ -64,8 +65,8 @@ public class F3MenuMixin {
     }
 
     private String offsetBlockHitString(String originalString) {
-        int posStartIndex = originalString.lastIndexOf(':') + 2;
-        if (posStartIndex == 1) { // -1 (<- no result) + 2
+        int posStartIndex = originalString.lastIndexOf(':') + 1;
+        if (posStartIndex == 0) { // -1 (<- no result) + 2
             return originalString;
         }
         String[] blockPosStrings = originalString.substring(posStartIndex).split(", ");
