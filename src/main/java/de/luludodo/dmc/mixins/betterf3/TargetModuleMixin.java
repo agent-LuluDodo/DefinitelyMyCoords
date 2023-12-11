@@ -1,9 +1,9 @@
+/*
 package de.luludodo.dmc.mixins.betterf3;
 
 import de.luludodo.dmc.api.DMCApi;
 import me.cominixo.betterf3.modules.TargetModule;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
@@ -19,7 +19,6 @@ public class TargetModuleMixin {
         return offsetBlockHitString((String) original);
     }
 
-    @Unique
     public String offsetBlockHitString(String original) {
         String[] blockPosStrings = original.split(", ");
         return DMCApi.getOffsetBlockX(Long.parseLong(blockPosStrings[0])) + ", " +
@@ -27,3 +26,4 @@ public class TargetModuleMixin {
             DMCApi.getOffsetBlockZ(Integer.parseInt(blockPosStrings[2]));
     }
 }
+*/

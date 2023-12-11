@@ -2,7 +2,6 @@ package de.luludodo.dmc;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 
 public class RelativeF3Coords {
     private static double oldX;
