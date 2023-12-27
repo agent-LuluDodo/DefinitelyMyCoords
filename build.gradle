@@ -35,8 +35,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Compatibility
-    //modCompileOnly "maven.modrinth:betterf3:${project.betterf3_version}"
-    //modRuntimeOnly "maven.modrinth:betterf3:${project.betterf3_version}"
+    modCompileOnly "maven.modrinth:betterf3:${project.betterf3_version}"
+    modRuntimeOnly "maven.modrinth:betterf3:${project.betterf3_version}"
 }
 
 processResources {

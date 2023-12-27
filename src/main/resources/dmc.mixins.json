@@ -7,7 +7,10 @@
   ],
   "client": [
     "vanilla.F3MenuMixin",
-    "vanilla.ObscureRotationsMixin"
+    "vanilla.ObscureRotationsMixin",
+    "betterf3.ChunksModuleMixin",
+    "betterf3.CoordsModuleMixin",
+    "betterf3.TargetModuleMixin"
   ],
   "plugin": "de.luludodo.dmc.mixins.DMCMixinPlugin",
   "injectors": {
